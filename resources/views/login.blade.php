@@ -27,7 +27,7 @@
                 </div>
                 <button>Log In</button>
                 <div class="register">
-                    <p>Don't have an account? <a href="#"> Register</a></p>
+                    <p>Don't have an account? <a href="welcome.blade.php"> Register</a></p>
                 </div>
             </form>
         </div>
