@@ -27,7 +27,11 @@
                 </div>
                 <button>Log In</button>
                 <div class="register">
-                    <p>Don't have an account? <a href="welcome.blade.php"> Register</a></p>
+<<<<<<< HEAD
+                    <p>Don't have an account? <a href="#"> Register</a></p>
+=======
+                    <p>Don't have an account? <a href="{{ route('register') }}"> Register</a></p>
+>>>>>>> 8319206df0c6a0d83b2d1525b82b5d61a9073b12
                 </div>
             </form>
         </div>
