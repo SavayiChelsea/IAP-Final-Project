@@ -33,7 +33,8 @@
                     <input type="password" name="password_confirmation" id="confirm-password" class="form-control" required>
                 </div>
                 <div class="form-group">
-                <button type="submit">Register</button>
+                    <label for="remember-me" class="text-dark"></label><br>
+                    <input type="submit" name="submit" class="btn btn-success btn-md" value="submit">
                 </div>
                 <div class="text-center mt-2">
                     <a href="{{ route('login') }}" class="text-dark">Login here</a>
