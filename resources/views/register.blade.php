@@ -9,6 +9,9 @@
 <body>
     <div class="row justify-content-center">
         <div class="col-12 col-sm-8 col-md-6">
+        @if(session('status'))
+        <div>{{ session('status') }}</div>
+        @endif
             <form class="form mt-5" method="POST" action="{{ route('register') }}">
             @csrf
                 <h3 class="text-center text-dark">Register</h3>
@@ -40,7 +43,21 @@
                     <a href="{{ route('login') }}" class="text-dark">Login here</a>
                 </div>
             </form>
+            @if(session('success'))
+        <div class="alert alert-success">
+        {{ session('success') }}
         </div>
+        @endif
+        </div>
+        @if($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>

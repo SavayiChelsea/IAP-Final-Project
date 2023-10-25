@@ -8,51 +8,48 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class RegisterController extends Controller
 {
-    public function __construct()
+    public function register(Request $request)
     {
-        $this->middleware('guest');
-    }
+        DB::beginTransaction();
 
+        try {
+            // Validation
+            $request->validate([
+                'name' => 'required|string|max:255',
+                'email' => 'required|string|email|max:255|unique:users',
+                'password' => 'required|string|min:8|confirmed',
+            ]);
+
+            // Create User
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+            ]);
+
+            // Additional Logic (if any)
+            
+            // Commit the transaction
+            DB::commit();
+
+            return redirect('/login')->with('status', 'User registered successfully! Please log in.');
+        } catch (\Exception $e) {
+            // If an exception occurs, rollback the transaction
+            DB::rollback();
+
+              // Log the exception using error_log
+              error_log('Error occurred: ' . $e->getMessage() . ' at line ' . $e->getLine());
+
+            // Show the error message along with the line number
+            return redirect('/register')->with('error', 'Registration failed. Error: ' . $e->getMessage() . ' at line ' . $e->getLine());
+        }
+    }
     public function showRegistrationForm()
     {
         return view('register');
-    }
-
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
-    }
-
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
-    }
-
-    protected function register(Request $request)
-    {
-        $validator = $this->validator($request->all());
-
-        if ($validator->fails()) {
-            return redirect('register')
-                        ->withErrors($validator)
-                        ->withInput();
-        }
-
-        $user = $this->create($request->all());
-
-        // You can perform additional tasks like sending email verification here
-
-        return redirect('/login')->with('status', 'Registration successful! Please login.');
     }
 }
