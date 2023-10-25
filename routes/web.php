@@ -6,7 +6,7 @@
     use App\Http\Controllers\Auth\RegisterController;
 Route::group(['middleware' => 'web'], function () {
     // Route for showing the registration form
-    Route::get('/register', [RegisterController::class, 'showRegistrationForm']);
+    Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
     Route::post('/register', [RegisterController::class, 'register']);
 
 
@@ -14,9 +14,9 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
     Route::post('/login', [LoginController::class, 'login']);
 
-    Auth::routes(['verify' => true]);
+    // Auth::routes(['verify' => true]);
 
     Route::get('/', function () {
-    return view('login');
+    return view('register');
     });
 });

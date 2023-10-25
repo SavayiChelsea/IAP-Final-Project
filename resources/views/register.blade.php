@@ -23,10 +23,18 @@
                     <label for="email" class="text-dark">Email:</label><br>
                     <input type="email" name="email" id="email" class="form-control" required>
                 </div>
-                <!-- <div class="form-group mt-3">
-                    <label for="email" class="text-dark">PhoneNumber:</label><br>
-                    <input type="pnumber" name="pnumber" id="pnumber" class="form-control">
-                </div> -->
+                <div class="form-group mt-3">
+                    <label for="phoneNumber" class="text-dark">PhoneNumber:</label><br>
+                    <input type="tel" name="pnumber" id="pnumber" class="form-control" required>
+                </div> 
+                <div class="form-group mt-3">
+                    <label for="CarType" class="text-dark">CarType:</label><br>
+                    <input type="text" name="Cartype" id="Cartype" class="form-control" required>
+                </div> 
+                <div class="form-group mt-3">
+                    <label for="NumberPlate" class="text-dark">NumberPlate:</label><br>
+                    <input type="text" name="numplate" id="numplate" class="form-control" required>
+                </div> 
                 <div class="form-group mt-3">
                     <label for="password" class="text-dark">Password:</label><br>
                     <input type="password" name="password" id="password" class="form-control" required>
