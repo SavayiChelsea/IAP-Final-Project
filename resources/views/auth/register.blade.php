@@ -1,4 +1,5 @@
 <x-guest-layout>
+    <link href="https://bootswatch.com/5/sketchy/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <x-authentication-card>
         <x-slot name="logo">
             <x-authentication-card-logo />
@@ -6,7 +7,7 @@
 
         <x-validation-errors class="mb-4" />
 
-        <form method="POST" action="{{ route('register') }}">
+        <form class="form" method="POST" action="{{ route('register') }}">
             @csrf
 
             <div>
@@ -62,7 +63,7 @@
                     {{ __('Already registered?') }}
                 </a>
 
-                <x-button class="ml-4">
+                <x-button class="btn btn-success ml-4">
                     {{ __('Register') }}
                 </x-button>
             </div>
