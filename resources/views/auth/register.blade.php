@@ -22,11 +22,11 @@
             <div class="row">
                     <div class="col form-group mt-3">
                         <x-label for="cartype" value="{{ __('Car Type') }}" class="text-dark"/>
-                        <x-input type="text" name="cartype" id="cartype" class="block mt-1 w-full" value="{{ old('Car Type') }}" required/>
+                        <x-input type="text" name="cartype" id="cartype" class="block mt-1 w-full" value="{{ old('Car Type') }}" required autocomplete="cartype"/>
                     </div> 
                     <div class="col form-group mt-3">
                         <x-label for="licenseplate" value="{{ __('License Plate') }}" class="text-dark"/>
-                        <x-input type="text" name="licenseplate" id="licenseplate" class="block mt-1 w-full" value="{{ old('License Plate Number') }}" required/>
+                        <x-input type="text" name="licenseplate" id="licenseplate" class="block mt-1 w-full" value="{{ old('License Plate Number') }}" required autocomplete="licenseplate"/>
                     </div> 
             </div>
 
