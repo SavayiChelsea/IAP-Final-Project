@@ -26,3 +26,6 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('users', \App\Http\Controllers\UsersController::class);
+});
