@@ -12,7 +12,23 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <style>
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
 
+    .col {
+        flex: 0 0 48%; /* Adjust the width of the columns as needed */
+        margin-bottom: 1rem; /* Add some bottom margin between the columns */
+    }
+
+    /* Apply the Figtree font to the input fields */
+    input[type="text"] {
+        font-family: 'figtree', sans-serif;
+    }
+</style>
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 

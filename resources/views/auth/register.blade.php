@@ -1,4 +1,5 @@
 <x-guest-layout>
+  
     <x-authentication-card>
         <x-slot name="logo">
             <x-authentication-card-logo />
@@ -18,7 +19,7 @@
                 <x-label for="email" value="{{ __('Email') }}" class="text-dark" />
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
             </div>
-            
+
             <div class="row">
                     <div class="col form-group mt-3">
                         <x-label for="cartype" value="{{ __('Car Type') }}" class="text-dark"/>
