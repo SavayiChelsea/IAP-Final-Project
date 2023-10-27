@@ -1,9 +1,5 @@
 <x-guest-layout>
-<<<<<<< HEAD
-  
-=======
-    <link href="https://bootswatch.com/5/sketchy/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
->>>>>>> 718bf1fdfb80d120f4c95ddeff4090803c50f777
+
     <x-authentication-card>
         <x-slot name="logo">
             <x-authentication-card-logo />
