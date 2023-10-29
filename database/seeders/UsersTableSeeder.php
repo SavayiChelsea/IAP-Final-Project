@@ -13,16 +13,7 @@ class UsersTableSeeder extends Seeder
             [
                 'id'             => 1,
                 'name'           => 'Admin',
-                'email'          => 'admin@admin.com',
-                'cartype'        => null,
-                'licenseplate'   => null,
-                'password'       => bcrypt('password'),
-                'remember_token' => null,
-            ],
-            [
-                'id'             => 2,
-                'name'           => 'User',
-                'email'          => 'user@user.com',
+                'email'          => 'shadracking7@gmail.com',
                 'cartype'        => null,
                 'licenseplate'   => null,
                 'password'       => bcrypt('password'),

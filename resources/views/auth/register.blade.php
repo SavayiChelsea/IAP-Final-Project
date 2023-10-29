@@ -1,5 +1,4 @@
 <x-guest-layout>
-
     <x-authentication-card>
         <x-slot name="logo">
             <x-authentication-card-logo />
@@ -7,7 +6,7 @@
 
         <x-validation-errors class="mb-4" />
 
-        <form class="form" method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{ route('register') }}">
             @csrf
 
             <div>
@@ -19,15 +18,15 @@
                 <x-label for="email" value="{{ __('Email') }}" class="text-dark" />
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
             </div>
-
+            
             <div class="row">
                     <div class="col form-group mt-3">
                         <x-label for="cartype" value="{{ __('Car Type') }}" class="text-dark"/>
-                        <x-input type="text" name="cartype" id="cartype" class="block mt-1 w-full" value="{{ old('Car Type') }}" required autocomplete="cartype"/>
+                        <x-input type="text" name="cartype" id="cartype" class="block mt-1 w-full" value="{{ old('Car Type') }}" required/>
                     </div> 
                     <div class="col form-group mt-3">
                         <x-label for="licenseplate" value="{{ __('License Plate') }}" class="text-dark"/>
-                        <x-input type="text" name="licenseplate" id="licenseplate" class="block mt-1 w-full" value="{{ old('License Plate Number') }}" required autocomplete="licenseplate"/>
+                        <x-input type="text" name="licenseplate" id="licenseplate" class="block mt-1 w-full" value="{{ old('License Plate Number') }}" required/>
                     </div> 
             </div>
 
@@ -63,7 +62,7 @@
                     {{ __('Already registered?') }}
                 </a>
 
-                <x-button class="btn btn-success ml-4">
+                <x-button class="ml-4">
                     {{ __('Register') }}
                 </x-button>
             </div>
