@@ -66,11 +66,15 @@
                                         Roles
                                     </th>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
-                                        @foreach ($user->roles as $role)
+                                    @if ($user->roles->isNotEmpty())
                                             <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                    {{ $role->title }}
+                                            {{ $user->roles->first()->title }}
                                                 </span>
-                                        @endforeach
+                                                @else
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                            No Role
+                                        </span>
+                                    @endif
                                     </td>
                                 </tr>
                             </table>
