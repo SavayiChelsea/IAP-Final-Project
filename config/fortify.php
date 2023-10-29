@@ -148,7 +148,9 @@ return [
         Features::registration(),
         Features::resetPasswords(),
         Features::emailVerification(),
-        Features::updateProfileInformation(),
+        Features::updateProfileInformation([
+            'licenseplate' => ['required', 'string', 'max:255', new \App\Rules\UppercaseLicensePlate],
+        ]),
         Features::updatePasswords(),
         Features::twoFactorAuthentication([
             'confirm' => true,

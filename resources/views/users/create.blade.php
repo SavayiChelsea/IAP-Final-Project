@@ -30,6 +30,24 @@
                         </div>
 
                         <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="cartype" class="block font-medium text-sm text-gray-700">Car Type</label>
+                            <input type="text" name="cartype" id="cartype" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                value="{{ old('cartype', '') }}" />
+                            @error('cartype')
+                            <p class="text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="licenseplate" class="block font-medium text-sm text-gray-700">License Plate</label>
+                            <input type="text" name="licenseplate" id="licenseplate" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                value="{{ old('licenseplate', '') }}" />
+                            @error('licenseplate')
+                            <p class="text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="password" class="block font-medium text-sm text-gray-700">Password</label>
                             <input type="password" name="password" id="password" class="form-input rounded-md shadow-sm mt-1 block w-full" />
                             @error('password')
