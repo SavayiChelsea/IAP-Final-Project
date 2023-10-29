@@ -26,9 +26,8 @@
                                     <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Email
                                     </th>
-                                    <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Email Verified At
-                                    </th>
+                                    
+                                    
                                     <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Car Type
                                     </th>
@@ -58,16 +57,15 @@
                                             {{ $user->email }}
                                         </td>
 
+                            
+                                    
+
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            {{ $user->email_verified_at }}
+                                    {{ $user->cartype ?? 'null' }}
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                    {{ $user->cartype }}
-                                        </td>
-
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            {{ $user->licenseplate }}
+                                            {{ $user->licenseplate ?? 'null'}}
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
@@ -79,7 +77,7 @@
                                         <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
                                             No Role
                                         </span>
-                                    @endif
+                                @endif
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
