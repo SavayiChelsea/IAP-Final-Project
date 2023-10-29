@@ -18,6 +18,8 @@ class UsersTableSeeder extends Seeder
                 'licenseplate'   => null,
                 'password'       => bcrypt('password'),
                 'remember_token' => null,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
         ];
 
