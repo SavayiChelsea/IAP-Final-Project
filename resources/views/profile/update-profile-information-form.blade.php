@@ -9,19 +9,7 @@
 
     <x-slot name="form">
 
-        <!-- Car Type -->
-        <div class="col-span-6 sm:col-span-4">
-            <x-label for="cartype" value="{{ __('Car Type') }}" />
-            <x-input id="cartype" type="text" class="mt-1 block w-full" wire:model="state.cartype" required />
-            <x-input-error for="cartype" class="mt-2" />
-        </div>
-
-        <!-- License Plate -->
-        <div class="col-span-6 sm:col-span-4">
-            <x-label for="licenseplate" value="{{ __('License Plate') }}" />
-            <x-input id="licenseplate" type="text" class="mt-1 block w-full" wire:model="state.licenseplate" required />
-            <x-input-error for="licenseplate" class="mt-2" />
-        </div>
+       
         
         <!-- Profile Photo -->
         @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
@@ -95,6 +83,20 @@
                     </p>
                 @endif
             @endif
+        </div>
+
+         <!-- Car Type -->
+         <div class="col-span-6 sm:col-span-4">
+            <x-label for="cartype" value="{{ __('Car Type') }}" />
+            <x-input id="cartype" type="text" class="mt-1 block w-full" wire:model="state.cartype" required />
+            <x-input-error for="cartype" class="mt-2" />
+        </div>
+
+        <!-- License Plate -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-label for="licenseplate" value="{{ __('License Plate') }}" />
+            <x-input id="licenseplate" type="text" class="mt-1 block w-full" wire:model="state.licenseplate" required />
+            <x-input-error for="licenseplate" class="mt-2" />
         </div>
     </x-slot>
 
