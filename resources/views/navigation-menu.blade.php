@@ -23,6 +23,9 @@
                         </x-nav-link>
                     </div>
                 @endcan
+                <!-- <x-nav-link href="{{ route('parking-spaces.index') }}" :active="request()->routeIs('parking-spaces.index')">
+                    {{ __('Parking Spaces') }}
+                </x-nav-link> -->
                 </div>
             </div>
 

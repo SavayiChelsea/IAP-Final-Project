@@ -48,6 +48,15 @@ return new class extends Migration
             $table->foreignId('role_id')->references('id')->on('roles')->cascadeOnDelete();
             $table->foreignId('user_id')->references('id')->on('users')->cascadeOnDelete();
         });
+
+        Schema::create('parking_spaces', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->enum('status', ['available', 'reserved','occupied'])->default('available');
+            $table->timestamps();
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
+        });
     }
 
     /**
@@ -60,5 +69,6 @@ return new class extends Migration
         Schema::dropIfExists('permissions');
         Schema::dropIfExists('permission_role');
         Schema::dropIfExists('role_user');
+        Schema::dropIfExists('parking_spaces');
     }
 };
