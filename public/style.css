@@ -1,0 +1,69 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: Century;
+}
+
+header {
+    height: 100vh;
+    min-height: 100px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../bg.JFIF');
+    background-size: cover;
+    background-position: center;
+}
+
+ul{
+    float: right;
+    list-style-type: none;
+    margin-top: 30px;
+    min-height: 400px;
+    margin-right: 60px;
+    font-size: 17px;
+}
+ul li{
+    display: inline-block;
+}
+
+
+
+ul li a{
+    text-decoration: none;
+    color: #fff;
+    padding: 5px 20px;
+    border: 1px solid transparent;
+    transition: 0.5 ease;
+
+}
+
+ul li a:hover{
+    background-color: #fff;
+    color: #000;
+
+}
+ ul li .active a{
+     background-color: #fff;
+    color: #000;
+}
+
+.logo img{
+    float: left;
+    width: 100px;
+    height: auto;
+ 
+
+}
+.main{
+    max-width: 1200px;
+    margin: auto;
+  }
+  .title{
+    position: absolute;
+    top: 47%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+  }
+.title h1{
+    color: #fff;
+    font-size: 70px;
+}
