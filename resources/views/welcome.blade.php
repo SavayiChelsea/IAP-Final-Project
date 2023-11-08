@@ -30,10 +30,6 @@
                 </div>
             @endif
 
-            <div class="absolute inset-0 flex flex-col items-center justify-center">
-        <h1 class="text-5xl font-extrabold text-gray-800 dark:text-white uppercase mb-4">Welcome to Our Car Park</h1>
-        <p class="text-lg text-gray-600 dark:text-gray-300"> Find your parking spot with ease</p>
-    </div>
 
         </div>
     </body>
