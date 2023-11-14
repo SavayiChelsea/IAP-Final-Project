@@ -14,18 +14,18 @@ class ParkingSpaceSeeder extends Seeder
      */
     public function run()
     {
-        $parkingSpaces = [
-            ['name' => 'Space A'],
-            ['name' => 'Space B'],
-            ['name' => 'Space C'],
-            // Add more parking space data as needed
-        ];
+        // $parkingSpaces = [
+        //     // ['name' => 'Space A'],
+        //     // ['name' => 'Space B'],
+        //     // ['name' => 'Space C'],
+        //     // Add more parking space data as needed
+        // ];
 
-        foreach ($parkingSpaces as $space) {
-            ParkingSpace::create([
-                'name' => $space['name'],
-                'status' => 'available', // Assuming all spaces are initially available
-            ]);
-        }
+        // foreach ($parkingSpaces as $space) {
+        //     ParkingSpace::create([
+        //         'name' => $space['name'],
+        //         'status' => 'available', // Assuming all spaces are initially available
+        //     ]);
+        // }
     }
 }
