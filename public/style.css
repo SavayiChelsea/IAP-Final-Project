@@ -1,49 +1,25 @@
-*{
-    margin: 0px;
-    padding: 0px;
-    font-family: Century;
-}
-
-header {
+body,html{
+    margin: 0;
+    padding: 0;
+    width: 100%;
     height: 100vh;
-    min-height: 100px;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../bg.JFIF');
-    background-size: cover;
+    font-family: sans-serif;
+}
+.Section_top{
+    text-align: right;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    background-image: url(images/image.jpg);
     background-position: center;
-}
-
-ul{
-    float: right;
-    list-style-type: none;
-    margin-top: 30px;
-    min-height: 400px;
-    margin-right: 60px;
-    font-size: 17px;
-}
-ul li{
-    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: change 15s infinite ease-in-out;
 }
 
 
 
-ul li a{
-    text-decoration: none;
-    color: #fff;
-    padding: 5px 20px;
-    border: 1px solid transparent;
-    transition: 0.5 ease;
-
-}
-
-ul li a:hover{
-    background-color: #fff;
-    color: #000;
-
-}
- ul li .active a{
-     background-color: #fff;
-    color: #000;
-}
 
 .logo img{
     float: left;
@@ -52,18 +28,39 @@ ul li a:hover{
  
 
 }
-.main{
-    max-width: 1200px;
-    margin: auto;
-  }
-  .title{
-    position: absolute;
-    top: 47%;
-    left: 50%;
-    transform: translate(-50%,-50%);
 
-  }
-.title h1{
-    color: #fff;
-    font-size: 70px;
+
+.content{
+   
+    position: absolute;
+
+}
+
+
+
+@keyframes change{
+    0%
+    {
+        background-image: url(images/img1.jpg);
+    }
+    20%
+    {
+        background-image: url(images/img2.jpg);
+    }
+    40%
+    {
+        background-image: url(images/image.jpg);
+    }
+    60%
+    {
+        background-image: url(images/img4.jpg);
+    }
+    80%
+    {
+        background-image: url(images/img5.jpg);
+    }
+    100%
+    {
+        background-image: url(images/img1.jpg);
+    }
 }
