@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class ParkingSpace extends Model
 {
     use HasFactory;
-
+    
+    protected $table = 'parkingspace';
     protected $fillable = [
         'Section',
         'availability',
@@ -18,5 +19,4 @@ class ParkingSpace extends Model
     public function parkingInstances(){
         return $this->hasMany(ParkingInstanceModel::class);
     }
-
 }

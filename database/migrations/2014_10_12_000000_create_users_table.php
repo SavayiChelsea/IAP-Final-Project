@@ -51,11 +51,11 @@ return new class extends Migration
             $table->foreignId('user_id')->references('id')->on('users')->cascadeOnDelete();
         });
 
-        Schema::create('parkingSpace', function (Blueprint $table) {
+        Schema::create('parkingspace', function (Blueprint $table) {
             $table->id();
             $table->string('Section');
             $table->string('Availability')->default('Available');
-            $table->string('state')->default('Not Reserved');
+            $table->string('status')->default('Not Reserved');
             $table->timestamps();
         });
         
