@@ -1,15 +1,10 @@
-<?php 
-
-require_once "includes/dbConn.php";
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trail</title>
-    <link rel="stylesheet" href="trail.css">
+    <link rel="stylesheet" href="lot.css">
 </head>
 <body>
      
@@ -40,91 +35,44 @@ require_once "includes/dbConn.php";
     </ul>
     <div class="container">
         <div class="row">
-            <?php
-            
-            $lot_sql = "SELECT * FROM ParkingSpace";
-
-            $lot_res = $conn->query($lot_sql);
-
-            if($lot_res -> num_rows>0){
-                while($space_row = $lot_res->fetch_assoc()){
-                    if($space_row["Section"] == "1"){
-
-                        if($space_row["availability"] == "NOT AVAILABLE"){
-                            ?>
-                            <div class="ParkingSpace Occupied"></div>
-                            <?php
-                        }elseif($space_row["state"] == "RESERVED"){
-                            ?>
-                            <div class="ParkingSpace Reserved"></div>
-                            <?php
-                        }else{
-                            ?>
-                            <div class="ParkingSpace"></div>
-                            <?php
-                        }
-
-                    }?>
-                    <?php
-                    if($space_row["Section"] == "2"){
-
-                        if($space_row["availability"] == "NOT AVAILABLE"){
-                            ?>
-                            <div class="ParkingSpace Occupied"></div>
-                            <?php
-                        }elseif($space_row["state"] == "RESERVED"){
-                            ?>
-                            <div class="ParkingSpace Reserved"></div>
-                            <?php
-                        }else{
-                            ?>
-                            <div class="ParkingSpace"></div>
-                            <?php
-                        }
-
-                    }
-
-                    if($space_row["Section"] == "3"){
-
-                        if($space_row["availability"] == "NOT AVAILABLE"){
-                            ?>
-                            <div class="ParkingSpace Occupied"></div>
-                            <?php
-                        }elseif($space_row["state"] == "RESERVED"){
-                            ?>
-                            <div class="ParkingSpace Reserved"></div>
-                            <?php
-                        }else{
-                            ?>
-                            <div class="ParkingSpace"></div>
-                            <?php
-                        }
-
-                    }
-
-                    if($space_row["Section"] == "4"){
-
-                        if($space_row["availability"] == "NOT AVAILABLE"){
-                            ?>
-                            <div class="ParkingSpace Occupied"></div>
-                            <?php
-                        }elseif($space_row["state"] == "RESERVED"){
-                            ?>
-                            <div class="ParkingSpace Reserved"></div>
-                            <?php
-                        }else{
-                            ?>
-                            <div class="ParkingSpace"></div>
-                            <?php
-                        }
-
-                    }
-
-                }
-            }
-
-            ?>
-        </div>
+        @foreach ($parkingSpace as $parkingSpace)
+            @if($parkingSpace->Section == 1)
+               @if($parkingSpace->Availability == 'NOT AVAILABLE')
+                   <div class="ParkingSpace Occupied"></div>
+               @elseif($parkingSpace->state == "RESERVED")
+                    <div class="ParkingSpace Reserved"></div>
+               @else
+                    <div class="ParkingSpace"></div>
+                @endif
+            @endif
+            @if($parkingSpace->Section == 2)
+               @if($parkingSpace->Availability == 'NOT AVAILABLE')
+                   <div class="ParkingSpace Occupied"></div>
+               @elseif($parkingSpace->state == "RESERVED")
+                    <div class="ParkingSpace Reserved"></div>
+               @else
+                    <div class="ParkingSpace"></div>
+                @endif
+            @endif
+            @if($parkingSpace->Section == 3)
+               @if($parkingSpace->Availability == 'NOT AVAILABLE')
+                   <div class="ParkingSpace Occupied"></div>
+               @elseif($parkingSpace->state == "RESERVED")
+                    <div class="ParkingSpace Reserved"></div>
+               @else
+                    <div class="ParkingSpace"></div>
+                @endif
+            @endif
+            @if($parkingSpace->Section == 4)
+               @if($parkingSpace->Availability == 'NOT AVAILABLE')
+                   <div class="ParkingSpace Occupied"></div>
+               @elseif($parkingSpace->state == "RESERVED")
+                    <div class="ParkingSpace Reserved"></div>
+               @else
+                    <div class="ParkingSpace"></div>
+                @endif
+            @endif
+        @endforeach
 
         <p class="text">
             You have selected <span id="count">0</span> Parking Space(s) to Reserve for a price of KSH.<span id="total">0</span>
@@ -138,7 +86,7 @@ require_once "includes/dbConn.php";
 
     </div>
     
-    <script src="trial.js"></script>
+    <script src="lot.js"></script>
 
 </body>
 </html>

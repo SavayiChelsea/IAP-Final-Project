@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ParkingSpaceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,3 +30,5 @@ Route::middleware([
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('users', \App\Http\Controllers\UsersController::class);
 });
+
+Route::get('/parkinglot',[ ParkingSpaceController::class , 'show'])->name('parkinglot');

@@ -51,28 +51,21 @@ return new class extends Migration
             $table->foreignId('user_id')->references('id')->on('users')->cascadeOnDelete();
         });
 
-        Schema::create('parking_spaces', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->enum('status', ['available', 'reserved','occupied'])->default('available');
-            $table->timestamps();
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
-        });
-
         Schema::create('parkingSpace', function (Blueprint $table) {
             $table->id();
-            $table->string('Availability');
-            $table->string('state');
+            $table->string('Section');
+            $table->string('Availability')->default('Available');
+            $table->string('state')->default('Not Reserved');
             $table->timestamps();
         });
         
         Schema::create('parkingInstance', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('parkingSpace_id')->references('id')->on('parkingSpace');
-            $table->foreignId('users_licenseplate')->references('licenseplate')->on('users');
+            $table->foreignId('parkingSpace_id')->constrained('parkingSpace');
+            $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
         });
+        
 
         Schema::create('priceRates', function (Blueprint $table) {
             $table->id();
@@ -83,8 +76,8 @@ return new class extends Migration
 
         Schema::create('parkingInvoice', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('parkingSpace_id')->references('id')->on('parkingSpace');
-            $table->foreignId('users_licenseplate')->references('licenseplate')->on('users');
+            $table->foreignId('parkingSpace_id')->constrained('parkingSpace');
+            $table->foreignId('user_id')->constrained('users');
             $table->unsignedInteger('Invoice');
             $table->string('state');
             $table->timestamps();
@@ -92,7 +85,7 @@ return new class extends Migration
 
         Schema::create('parkingPayments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('parkingInvoice_id')->references('id')->on('parkingInvoice');
+            $table->foreignId('parkingInvoice_id')->constrained('parkingInvoice');
             $table->unsignedInteger('AmountCharged');
             $table->unsignedInteger('AmountPaid');
             $table->integer('Balance');
@@ -101,15 +94,15 @@ return new class extends Migration
 
         Schema::create('Reservation', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('parkingSpace_id')->references('id')->on('parkingSpace');
+            $table->foreignId('parkingSpace_id')->constrained('parkingSpace');
             $table->integer('Duration');
             $table->timestamps();
         });
 
         Schema::create('resInvoice', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('Res_id')->references('id')->on('Reservation');
-            $table->foreignId('users_licenseplate')->references('licenseplate')->on('users');
+            $table->foreignId('Res_id')->constrained('Reservation');
+            $table->foreignId('user_id')->constrained('users');
             $table->unsignedInteger('Amountcharged');
             $table->string('state');
             $table->timestamps();
@@ -117,7 +110,7 @@ return new class extends Migration
 
         Schema::create('resPayments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('resInvoice_id')->references('id')->on('resInvoice');
+            $table->foreignId('resInvoice_id')->constrained('resInvoice');
             $table->unsignedInteger('Amountcharged');
             $table->unsignedInteger('Amountpaid');
             $table->Integer('Balance');
@@ -126,7 +119,7 @@ return new class extends Migration
 
         Schema::create('postPay', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('users_licenseplate')->references('licenseplate')->on('users');
+            $table->foreignId('user_id')->constrained('users');
             $table->integer('Duration');
             $table->timestamps();
         });
@@ -140,15 +133,15 @@ return new class extends Migration
 
         Schema::create('ChargeInvoice', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('charges_id')->references('id')->on('charges');
-            $table->foreignId('users_licenseplate')->references('licenseplate')->on('users');
+            $table->foreignId('charges_id')->constrained('charges');
+            $table->foreignId('user_id')->constrained('users');
             $table->string('state');
             $table->timestamps();
         });
 
         Schema::create('ChargesPayments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('chargeInvoice_id')->references('id')->on('ChargeInvoice');
+            $table->foreignId('chargeInvoice_id')->constrained('ChargeInvoice');
             $table->string('Amountcharged');
             $table->string('Amountpaid');
             $table->string('Balance');

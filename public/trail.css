@@ -1,0 +1,148 @@
+* {
+box-sizing: border-box;
+}
+  
+body {
+    background-color: #242333;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 10px;
+    padding: 30px;
+}
+
+.lot-container {
+    margin: 20px 0;
+}
+
+.lot-container select {
+    background-color: #fff;
+    border: 0;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-left: 10px;
+    padding: 5px 15px 5px 15px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.container {
+    perspective: 1000px;
+    margin-bottom: 30px;
+}
+
+.ParkingSpace {
+    background-color: #444451;
+    height: 50px;
+    width: 34px;
+    margin: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.ParkingSpace.Reserved {
+    background-color: #6feaf6;
+}
+
+.ParkingSpace.Occupied {
+    background-color: #fff;
+}
+
+.ParkingSpace.selected {
+    background-color: greenyellow;
+}
+
+.selected {
+    background-color: #444451;
+    height: 50px;
+    width: 34px;
+    margin: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: greenyellow;
+}
+
+/* .ParkingSpace:nth-of-type(5) {
+    margin-right: 18px;
+}
+
+.ParkingSpace:nth-last-of-type(5) {
+    margin-left: 18px;
+} */
+
+.ParkingSpace:not(.Occupied):hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.showcase .ParkingSpace:not(.Occupied):hover {
+    cursor: default;
+    transform: scale(1);
+}
+
+.showcase {
+    background: rgba(0, 0, 0, 0.1);
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #777;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.showcase li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+}
+
+.showcase li small {
+    margin-left: 2px;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    row-gap: 20px;
+}
+
+.building{
+    text-align: center;
+    margin: 10px 10px;
+    border: solid;
+    border-radius: 5px;
+    border-color: #fff;
+}
+
+p{
+    text-align: center;
+}
+
+p.text {
+  margin: 5px 0;
+}
+    
+p.text span {
+  color: #6feaf6;
+}
+
+.reserve{
+    align-items: center;
+    background-color: #046380;
+    color: #FFF;
+    border: none;
+    padding: 10px 15px;
+    font-size: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 2px 2px 0 #034154;
+    margin-bottom: 10px;
+    margin-left: 18px;
+}
+      
