@@ -3,23 +3,18 @@ box-sizing: border-box;
 }
   
 body {
-    background-color: #242333;
     color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 10px;
-    padding: 30px;
 }
 
 .lot-container {
     margin: 20px 0;
+    display:flex;
+    justify-content: center;
 }
 
 .lot-container select {
     background-color: #fff;
+    color: #242333;
     border: 0;
     border-radius: 5px;
     font-size: 14px;
@@ -90,15 +85,15 @@ body {
     border-radius: 5px;
     color: #777;
     list-style-type: none;
-    display: flex;
-    justify-content: space-between;
+    display:flex;
+    justify-content: center;
 }
 
 .showcase li {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 10px;
+   
 }
 
 .showcase li small {
@@ -107,10 +102,11 @@ body {
 
 .row {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    row-gap: 20px;
+    grid-template-columns: repeat(10, 40px);
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
 }
-
 p{
     text-align: center;
 }
@@ -124,7 +120,7 @@ p.text span {
 }
 
 .reserve{
-    align-items: center;
+   
     background-color: #046380;
     color: #FFF;
     border: none;
@@ -134,7 +130,10 @@ p.text span {
     cursor: pointer;
     outline: none;
     box-shadow: 2px 2px 0 #034154;
-    margin-bottom: 10px;
-    margin-left: 18px;
+   
+}
+.button{
+    display:flex;
+    justify-content: center;
 }
       
