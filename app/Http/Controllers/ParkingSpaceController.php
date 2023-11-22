@@ -9,12 +9,12 @@ class ParkingSpaceController extends Controller
 {
    public function show(){
 
-    dump(ParkingSpace::all());
+    // Fetch all parking spaces from the database
+    $parkingSpaces = ParkingSpace::all();
 
-    return view('dashboard',[
-        'parkingSpace'=> ParkingSpace::all()
-    ]);
-
+    // Pass the data to the 'lot.blade.php' view
+    return view('lot', compact('parkingSpaces'));
+    
    }
 
 }

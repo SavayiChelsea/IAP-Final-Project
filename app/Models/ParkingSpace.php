@@ -16,13 +16,4 @@ class ParkingSpace extends Model
         'state'
     ];
 
- 
-    public function index()
-    {
-        // Fetch all parking spaces from the database
-        $parkingSpaces = ParkingSpace::all();
-
-        // Pass the data to the 'lot.blade.php' view
-        return view('lot', compact('parkingSpaces'));
-    }
 }

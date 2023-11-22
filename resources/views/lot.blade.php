@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trail</title>
+    <title>{{ config('app.name', 'Car Park') }}</title>
     <link rel="stylesheet" href="lot.css">
 </head>
 <body>
@@ -35,7 +35,7 @@
     </ul>
     <div class="container">
         <div class="row">
-        @foreach ($parkingSpace as $parkingSpace)
+        @foreach ($parkingSpaces as $parkingSpace)
             @if($parkingSpace->Section == 1)
                @if($parkingSpace->Availability == 'NOT AVAILABLE')
                    <div class="ParkingSpace Occupied"></div>
