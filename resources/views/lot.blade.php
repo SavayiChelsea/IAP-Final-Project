@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ config('app.name', 'Car Park') }}</title>
-    <link rel="stylesheet" href="lot.css">
+    <link rel="stylesheet" href="{{asset ('css/trail.css')}}">
 </head>
 <body>
      
     <div class="lot-container">
         <label>Pick a Parking Lot:</label>
         <select id="ParkingLot">
-        <option value="500">Strathmore Parking Lot</option>
+        <option>Strathmore Parking Lot</option>
         </select>
     </div>
 
@@ -35,45 +35,45 @@
     </ul>
     <div class="container">
         <div class="row">
-        @foreach ($parkingSpaces as $parkingSpace)
-            @if($parkingSpace->Section == 1)
-               @if($parkingSpace->Availability == 'NOT AVAILABLE')
-                   <div class="ParkingSpace Occupied"></div>
-               @elseif($parkingSpace->state == "RESERVED")
-                    <div class="ParkingSpace Reserved"></div>
-               @else
-                    <div class="ParkingSpace"></div>
+            @foreach ($parkingSpaces as $parkingSpace)
+                @if($parkingSpace->Section == 1)
+                @if($parkingSpace->Availability == 'NOT AVAILABLE')
+                    <div class="ParkingSpace Occupied"></div>
+                @elseif($parkingSpace->state == "RESERVED")
+                        <div class="ParkingSpace Reserved"></div>
+                @else
+                        <div class="ParkingSpace"></div>
+                    @endif
                 @endif
-            @endif
-            @if($parkingSpace->Section == 2)
-               @if($parkingSpace->Availability == 'NOT AVAILABLE')
-                   <div class="ParkingSpace Occupied"></div>
-               @elseif($parkingSpace->state == "RESERVED")
-                    <div class="ParkingSpace Reserved"></div>
-               @else
-                    <div class="ParkingSpace"></div>
+                @if($parkingSpace->Section == 2)
+                @if($parkingSpace->Availability == 'NOT AVAILABLE')
+                    <div class="ParkingSpace Occupied"></div>
+                @elseif($parkingSpace->state == "RESERVED")
+                        <div class="ParkingSpace Reserved"></div>
+                @else
+                        <div class="ParkingSpace"></div>
+                    @endif
                 @endif
-            @endif
-            @if($parkingSpace->Section == 3)
-               @if($parkingSpace->Availability == 'NOT AVAILABLE')
-                   <div class="ParkingSpace Occupied"></div>
-               @elseif($parkingSpace->state == "RESERVED")
-                    <div class="ParkingSpace Reserved"></div>
-               @else
-                    <div class="ParkingSpace"></div>
+                @if($parkingSpace->Section == 3)
+                @if($parkingSpace->Availability == 'NOT AVAILABLE')
+                    <div class="ParkingSpace Occupied"></div>
+                @elseif($parkingSpace->state == "RESERVED")
+                        <div class="ParkingSpace Reserved"></div>
+                @else
+                        <div class="ParkingSpace"></div>
+                    @endif
                 @endif
-            @endif
-            @if($parkingSpace->Section == 4)
-               @if($parkingSpace->Availability == 'NOT AVAILABLE')
-                   <div class="ParkingSpace Occupied"></div>
-               @elseif($parkingSpace->state == "RESERVED")
-                    <div class="ParkingSpace Reserved"></div>
-               @else
-                    <div class="ParkingSpace"></div>
+                @if($parkingSpace->Section == 4)
+                @if($parkingSpace->Availability == 'NOT AVAILABLE')
+                    <div class="ParkingSpace Occupied"></div>
+                @elseif($parkingSpace->state == "RESERVED")
+                        <div class="ParkingSpace Reserved"></div>
+                @else
+                        <div class="ParkingSpace"></div>
+                    @endif
                 @endif
-            @endif
-        @endforeach
-
+            @endforeach
+        </div>
         <p class="text">
             You have selected <span id="count">0</span> Parking Space(s) to Reserve for a price of KSH.<span id="total">0</span>
         </p>
@@ -86,7 +86,7 @@
 
     </div>
     
-    <script src="lot.js"></script>
+    <script src="{{asset ('js/lot.js')}}"></script>
 
 </body>
 </html>

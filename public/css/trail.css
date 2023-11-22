@@ -111,14 +111,6 @@ body {
     row-gap: 20px;
 }
 
-.building{
-    text-align: center;
-    margin: 10px 10px;
-    border: solid;
-    border-radius: 5px;
-    border-color: #fff;
-}
-
 p{
     text-align: center;
 }
