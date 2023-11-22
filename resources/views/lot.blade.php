@@ -37,38 +37,38 @@
         <div class="row">
             @foreach ($parkingSpaces as $parkingSpace)
                 @if($parkingSpace->Section == 1)
-                @if($parkingSpace->Availability == 'NOT AVAILABLE')
-                    <div class="ParkingSpace Occupied"></div>
-                @elseif($parkingSpace->state == "RESERVED")
+                    @if($parkingSpace->Availability == 'NOT AVAILABLE')
+                        <div class="ParkingSpace Occupied"></div>
+                    @elseif($parkingSpace->status == "RESERVED")
                         <div class="ParkingSpace Reserved"></div>
-                @else
+                    @else
                         <div class="ParkingSpace"></div>
                     @endif
                 @endif
                 @if($parkingSpace->Section == 2)
-                @if($parkingSpace->Availability == 'NOT AVAILABLE')
-                    <div class="ParkingSpace Occupied"></div>
-                @elseif($parkingSpace->state == "RESERVED")
+                    @if($parkingSpace->Availability == 'NOT AVAILABLE')
+                        <div class="ParkingSpace Occupied"></div>
+                    @elseif($parkingSpace->status == "RESERVED")
                         <div class="ParkingSpace Reserved"></div>
-                @else
+                    @else
                         <div class="ParkingSpace"></div>
                     @endif
                 @endif
                 @if($parkingSpace->Section == 3)
-                @if($parkingSpace->Availability == 'NOT AVAILABLE')
-                    <div class="ParkingSpace Occupied"></div>
-                @elseif($parkingSpace->state == "RESERVED")
+                    @if($parkingSpace->Availability == 'NOT AVAILABLE')
+                        <div class="ParkingSpace Occupied"></div>
+                    @elseif($parkingSpace->status == "RESERVED")
                         <div class="ParkingSpace Reserved"></div>
-                @else
+                    @else
                         <div class="ParkingSpace"></div>
                     @endif
                 @endif
                 @if($parkingSpace->Section == 4)
-                @if($parkingSpace->Availability == 'NOT AVAILABLE')
-                    <div class="ParkingSpace Occupied"></div>
-                @elseif($parkingSpace->state == "RESERVED")
+                    @if($parkingSpace->Availability == 'NOT AVAILABLE')
+                        <div class="ParkingSpace Occupied"></div>
+                    @elseif($parkingSpace->status == "RESERVED")
                         <div class="ParkingSpace Reserved"></div>
-                @else
+                    @else
                         <div class="ParkingSpace"></div>
                     @endif
                 @endif
