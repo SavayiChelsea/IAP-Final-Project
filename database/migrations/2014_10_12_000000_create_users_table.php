@@ -104,7 +104,7 @@ return new class extends Migration
             $table->foreignId('Res_id')->constrained('Reservation');
             $table->foreignId('user_id')->constrained('users');
             $table->unsignedInteger('Amountcharged');
-            $table->string('state');
+            $table->string('state')->default('Not Paid');
             $table->timestamps();
         });
 
@@ -135,7 +135,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('charges_id')->constrained('charges');
             $table->foreignId('user_id')->constrained('users');
-            $table->string('state');
+            $table->string('state')->default('Not Paid');
             $table->timestamps();
         });
 
