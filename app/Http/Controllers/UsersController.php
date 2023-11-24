@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateUserRequest;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -72,4 +73,16 @@ class UsersController extends Controller
 
         return redirect()->route('users.index');
     }
+
+    // public function invoice(){
+
+    //     return view('invoice', compact('user'));  
+
+    // }
+    public function getUserWithRelatedData()
+    {
+        $user = Auth::user();
+        return view('invoice', compact('user'));
+    }
+
 }

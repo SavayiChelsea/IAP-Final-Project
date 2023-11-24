@@ -15,14 +15,25 @@
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link href="{{ route('parkinglot') }}" :active="request()->routeIs('parkingLot')">
+                    <x-nav-link href="{{ route('parkinglot') }}" :active="request()->routeIs('parkinglot')">
                         {{ __('ParkingLot') }}
                     </x-nav-link>
+                    <x-nav-link href="{{ route('admin.reservation') }}" :active="request()->routeIs('admin.reservation')">
+                        {{ __('Reservation') }}
+                    </x-nav-link>
+                    {{-- <x-nav-link href="{{ route('payments') }}" :active="request()->routeIs('payments')">
+                        {{ __('Payments') }}
+                    </x-nav-link> --}}
 
                     @can('user_access')
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.*')">
                             Users
+                        </x-nav-link>
+                    </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link href="{{ route('admin.instance') }}" :active="request()->routeIs('admin.instance')">
+                            Parking Creation
                         </x-nav-link>
                     </div>
                 @endcan
@@ -112,6 +123,12 @@
 
                             <x-dropdown-link href="{{ route('profile.show') }}">
                                 {{ __('Profile') }}
+                            </x-dropdown-link>
+                            <x-dropdown-link href="{{ route('invoices',['id' => auth()->user()->id]) }}">
+                                {{ __('Invoices') }}
+                            </x-dropdown-link>
+                            <x-dropdown-link href="{{ route('profile.show') }}">
+                                {{ __('Payments') }}
                             </x-dropdown-link>
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())

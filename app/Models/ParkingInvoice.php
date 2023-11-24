@@ -9,8 +9,9 @@ class ParkingInvoice extends Model
 {
     use HasFactory;
 
-    public function user(){
+    protected $table = 'parkinginvoice';
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
-
 }

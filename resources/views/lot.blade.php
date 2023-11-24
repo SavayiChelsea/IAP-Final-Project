@@ -12,6 +12,7 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -24,8 +25,9 @@
     <body class="font-sans antialiased">
         <x-banner />
 
-<div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+    <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
             @livewire('navigation-menu')
+            @include('admin.success_message')
 
     <div class="lot-container">
         <label>Pick a Parking Lot:</label>
@@ -57,7 +59,7 @@
             @foreach ($parkingSpaces as $parkingSpace)
                 @if($parkingSpace->Section == 1)
                     @if($parkingSpace->Availability == 'NOT AVAILABLE')
-                        <div class="ParkingSpace Occupied"></div>
+                        <div class="ParkingSpace Occupied" ></div>
                     @elseif($parkingSpace->status == "RESERVED")
                         <div class="ParkingSpace Reserved"></div>
                     @else
@@ -93,19 +95,21 @@
                 @endif
             @endforeach
         </div>
+        <div class="button">
+        <form method="POST" action="{{ route('reserve.parking.spaces') }}">
+            @csrf
+            <input type="hidden" name="selectedSpacesIds[]" id="selectedSpacesIds" value="">
+            <input type="hidden" name="totalprice" id="totalprice" value="">
+            <button type="submit">Reserve Selected Spaces</button>
+        </form>
+        </div>
         <p class="text">
-            You have selected <span id="count">0</span> Parking Space(s) to Reserve for a price of KSH.<span id="total">0</span>
+            You have selected <span id="count">0</span> Parking Space(s) to Reserve for a total price of KSH.<span id="total">0</span>
         </p>
+        
 
-        <p>
-        To reserve Click the following button.
-        </p>
-<div class="button">
-        <button class="reserve"> Reserve </button>
-</div>
-
+     </div>
     </div>
-    
 </div>
 <script src="{{asset ('js/lot.js')}}"></script>
 

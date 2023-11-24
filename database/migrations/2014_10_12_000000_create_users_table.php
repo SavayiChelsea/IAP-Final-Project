@@ -76,10 +76,10 @@ return new class extends Migration
 
         Schema::create('parkingInvoice', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('parkingSpace_id')->constrained('parkingSpace');
+            $table->foreignId('parkingInstance_id')->constrained('parkingInstance');
             $table->foreignId('user_id')->constrained('users');
             $table->unsignedInteger('Invoice');
-            $table->string('state');
+            $table->string('state')->default('Not Paid');
             $table->timestamps();
         });
 

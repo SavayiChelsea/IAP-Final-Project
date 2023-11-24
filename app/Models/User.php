@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -76,8 +77,30 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->belongsToMany(Role::class);
     }
     
-    public function parkingSpace()
-{
-    return $this->hasOne(ParkingSpace::class);
-}
+    public function parkingInvoices()
+    {
+        return $this->hasMany(ParkingInvoice::class);
+    }
+
+    public function parkingPayments(){
+        return $this->hasMany(ParkingPayments::class);
+    }
+
+    public function resInvoices(){
+        return $this->hasMany(ResInvoice::class);
+    }
+
+    public function resPayments(){
+        return $this->hasMany(ResPayments::class);
+    }
+
+    public function chargeInvoices()
+    {
+        return $this->hasMany(ChargeInvoice::class);
+    }
+
+    public function chargesPayments(){
+        return $this->hasMany(ChargesPayments::class);
+    }
+
 }

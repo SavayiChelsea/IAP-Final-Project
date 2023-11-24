@@ -9,8 +9,8 @@ class ParkingPayments extends Model
 {
     use HasFactory;
 
-    public function parkingInvoices(){
-        return $this->hasMany(parkingInvoices::class);
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 
 

@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class PriceRates extends Model
 {
     use HasFactory;
+    protected $table = 'pricerates';
 }

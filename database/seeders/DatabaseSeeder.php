@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
             PermissionRoleTableSeeder::class,
             UsersTableSeeder::class,
             RoleUserTableSeeder::class,
-            ParkingSpaceSeeder::class,     
+            ParkingSpaceSeeder::class, 
+            PriceRate::class,    
         ]);
         // Add more seeders if needed
         // \App\Models\User::factory(10)->create();

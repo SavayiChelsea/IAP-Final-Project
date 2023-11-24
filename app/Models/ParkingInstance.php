@@ -9,18 +9,20 @@ class ParkingInstance extends Model
 {
     use HasFactory;
 
+    protected $table = 'parkinginstance';
     protected $fillable = [
         'ParkingSpace_id',
         'user_id',
         'likes'
     ];
 
-    public function user(){
+    public function user() {
         return $this->belongsTo(User::class);
     }
 
-    public function parkingSpace(){
-        return $this->belongsTo(ParkingSpaceModel::class);
+    public function parkingSpace()
+    {
+        return $this->belongsTo(ParkingSpace::class,'parkingSpace_id','parkingSpace_id');
     }
 
 }

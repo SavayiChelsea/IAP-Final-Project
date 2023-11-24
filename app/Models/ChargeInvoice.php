@@ -8,9 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class ChargeInvoice extends Model
 {
     use HasFactory;
-
+    
+    protected $table = 'chargeinvoice';
     public function charges(){
         return $this->hasMany(Charges::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 
 }
