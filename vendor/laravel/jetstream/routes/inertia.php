@@ -12,12 +12,18 @@ use Laravel\Jetstream\Http\Controllers\Inertia\TeamMemberController;
 use Laravel\Jetstream\Http\Controllers\Inertia\TermsOfServiceController;
 use Laravel\Jetstream\Http\Controllers\Inertia\UserProfileController;
 use Laravel\Jetstream\Http\Controllers\TeamInvitationController;
+use Laravel\Jetstream\Http\Controllers\Livewire\AboutController;
+use Laravel\Jetstream\Http\Controllers\Livewire\ContactController;
 use Laravel\Jetstream\Jetstream;
 
 Route::group(['middleware' => config('jetstream.middleware', ['web'])], function () {
+        
     if (Jetstream::hasTermsAndPrivacyPolicyFeature()) {
         Route::get('/terms-of-service', [TermsOfServiceController::class, 'show'])->name('terms.show');
         Route::get('/privacy-policy', [PrivacyPolicyController::class, 'show'])->name('policy.show');
+
+        Route::get('/terms-of-service', [AboutController::class, 'show'])->name('about.show');
+        Route::get('/privacy-policy', [ContactController::class, 'show'])->name('contact.show');
     }
 
     $authMiddleware = config('jetstream.guard')
