@@ -9,6 +9,7 @@ class ResPayments extends Model
 {
     use HasFactory;
 
+    protected $table = 'respayments';
     public function user(){
         return $this->belongsTo(User::class);
     }

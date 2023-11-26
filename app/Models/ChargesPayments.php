@@ -9,6 +9,7 @@ class ChargesPayments extends Model
 {
     use HasFactory;
 
+    protected $table = 'chargespayments';
     public function user(){
         return $this->belongsTo(User::class);
     }

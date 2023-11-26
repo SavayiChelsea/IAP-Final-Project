@@ -9,9 +9,8 @@ class ParkingPayments extends Model
 {
     use HasFactory;
 
+    protected $table = 'parkingpayments';
     public function user(){
         return $this->belongsTo(User::class);
     }
-
-
 }

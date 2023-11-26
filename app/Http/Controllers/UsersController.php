@@ -85,4 +85,9 @@ class UsersController extends Controller
         return view('invoice', compact('user'));
     }
 
+    public function getRelatedData()
+    {
+        $user = Auth::user();
+        return view('payments', compact('user'));
+    }
 }
