@@ -22,6 +22,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -46,7 +47,8 @@ Route::get('/parkinglot',[ ParkingSpaceController::class , 'show'])->name('parki
 //     return response()->json($user);
 // })->name('invoices');
 
-Route::get('/user/{id}', [UsersController::class, 'getUserWithRelatedData'])->name('invoices');
+Route::get('/user/invoices', [UsersController::class, 'getUserWithRelatedData'])->name('invoices');
+Route::get('/user/payments', [UsersController::class, 'getRelatedData'])->name('payments');
 Route::get('/instance',[ParkingInstanceController::class, 'index'])->name('admin.instance');
 Route::get('/reservation',[ReservationController::class, 'index'])->name('admin.reservation');
 Route::post('/instance/create',[ParkingInstanceController::class, 'store'])->name('admin.instance.store');

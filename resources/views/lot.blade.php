@@ -49,10 +49,6 @@
             <div class="ParkingSpace Reserved"></div>
             <small>Reserved</small>
         </li>
-        <li>
-            <div class="selected"></div>
-            <small>Selected</small>
-        </li>
     </ul>
     <div class="container">
         <div class="row">
@@ -95,23 +91,9 @@
                 @endif
             @endforeach
         </div>
-        <div class="button">
-        <form method="POST" action="{{ route('reserve.parking.spaces') }}">
-            @csrf
-            <input type="hidden" name="selectedSpacesIds[]" id="selectedSpacesIds" value="">
-            <input type="hidden" name="totalprice" id="totalprice" value="">
-            <button type="submit">Reserve Selected Spaces</button>
-        </form>
-        </div>
-        <p class="text">
-            You have selected <span id="count">0</span> Parking Space(s) to Reserve for a total price of KSH.<span id="total">0</span>
-        </p>
-        
-
      </div>
     </div>
 </div>
-<script src="{{asset ('js/lot.js')}}"></script>
 
 @stack('modals')
 

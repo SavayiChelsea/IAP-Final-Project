@@ -86,6 +86,7 @@ return new class extends Migration
         Schema::create('parkingPayments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('parkingInvoice_id')->constrained('parkingInvoice');
+            $table->foreignId('user_id')->constrained('users');
             $table->unsignedInteger('AmountCharged');
             $table->unsignedInteger('AmountPaid');
             $table->integer('Balance');
@@ -111,6 +112,7 @@ return new class extends Migration
         Schema::create('resPayments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('resInvoice_id')->constrained('resInvoice');
+            $table->foreignId('user_id')->constrained('users');
             $table->unsignedInteger('Amountcharged');
             $table->unsignedInteger('Amountpaid');
             $table->Integer('Balance');
@@ -142,6 +144,7 @@ return new class extends Migration
         Schema::create('ChargesPayments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('chargeInvoice_id')->constrained('ChargeInvoice');
+            $table->foreignId('user_id')->constrained('users');
             $table->string('Amountcharged');
             $table->string('Amountpaid');
             $table->string('Balance');

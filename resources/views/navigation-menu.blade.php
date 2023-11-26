@@ -124,10 +124,10 @@
                             <x-dropdown-link href="{{ route('profile.show') }}">
                                 {{ __('Profile') }}
                             </x-dropdown-link>
-                            <x-dropdown-link href="{{ route('invoices',['id' => auth()->user()->id]) }}">
+                            <x-dropdown-link href="{{ route('invoices') }}">
                                 {{ __('Invoices') }}
                             </x-dropdown-link>
-                            <x-dropdown-link href="{{ route('profile.show') }}">
+                            <x-dropdown-link href="{{ route('payments') }}">
                                 {{ __('Payments') }}
                             </x-dropdown-link>
 
