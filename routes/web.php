@@ -1,13 +1,16 @@
 <?php
 
-use App\Http\Controllers\ParkingInstanceController;
-use App\Http\Controllers\ParkingInvoiceController;
-use App\Http\Controllers\ParkingSpaceController;
-use App\Http\Controllers\ReservationController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PDFController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\PDFController;
+use App\Http\Controllers\PayParkingController;
+use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\ParkingSpaceController;
+use App\Http\Controllers\ParkingInvoiceController;
+use App\Http\Controllers\ParkingInstanceController;
+use App\Http\Controllers\payments\mpesa\MPESAController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,4 +69,12 @@ Route::post('/parkinglot/reserve-parking-spaces', [ReservationController::class,
 Route::get('/user/generate-invoice-pdf', [PDFController::class, 'generateInvoice'])->name('user.generate.invoice.pdf');
 Route::get('/user/generate-payment-pdf', [PDFController::class, 'generatePayment'])->name('user.generate.payment.pdf');
 
+
+Route::get('/pay',[MPESAController::class, 'stk'])->name('pay-stk');
+Route::post('/v1/mpesatest/stk/push', [MPESAController::class, 'STKPush'])->name('pay-stk');
+
+Route::post('v1/confirm', [MPESAController::class, 'STKConfirm'])->name('mpesa.confirm');
+
+
+Route::get('/admin/pay-parking', [PayParkingController::class, 'index'])->name('admin.pay-parking');
 
