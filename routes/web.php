@@ -10,7 +10,7 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\ParkingSpaceController;
 use App\Http\Controllers\ParkingInvoiceController;
 use App\Http\Controllers\ParkingInstanceController;
-use App\Http\Controllers\payments\mpesa\MPESAController;
+use Illuminate\Routing\Controllers\payments\mpesa\MPESAController;
 
 /*
 |--------------------------------------------------------------------------
