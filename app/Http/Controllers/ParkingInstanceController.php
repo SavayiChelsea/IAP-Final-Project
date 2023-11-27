@@ -71,7 +71,7 @@ class ParkingInstanceController extends Controller
                 $duration = $parkingInstance->updated_at->diffInHours($parkingInstance->created_at);
 
                 // Retrieve price from the Price table (assuming price per hour)
-                $price = PriceRates::first()->value; // Assuming a single price for simplicity
+                $price = PriceRates::first()->price; // Assuming a single price for simplicity
 
                 // Calculate total cost
                 $totalCost = $duration * $price;

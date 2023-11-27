@@ -26,7 +26,7 @@
             </form>
         </div>
         <div class="">
-            @include('admin.success_message')
+            @include('admin.success')
             <form class="form mt-5" action="{{ route('admin.instance.update') }}" method="post">
                 @csrf
                 <div>
