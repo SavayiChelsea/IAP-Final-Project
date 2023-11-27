@@ -90,4 +90,5 @@ class UsersController extends Controller
         $user = Auth::user();
         return view('payments', compact('user'));
     }
+
 }
