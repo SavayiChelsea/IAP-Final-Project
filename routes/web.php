@@ -22,12 +22,7 @@ use App\Http\Controllers\DashboardController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/services', function () {
-    return view('services')->name('services');
-});
-Route::get('/FAQs', function () {
-    return view('FAQs')->name('FAQs');;
-});
+
 
 
 Route::middleware([
@@ -40,6 +35,8 @@ Route::middleware([
     })->name('dashboard');
     
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/services', [DashboardController::class, 'services'])->name('services');
+Route::get('/faqs', [DashboardController::class, 'faqs'])->name('faqs');
 
 });
 Route::group(['middleware' => 'auth'], function () {

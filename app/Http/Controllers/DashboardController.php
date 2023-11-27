@@ -15,4 +15,15 @@ class DashboardController extends Controller
         // Pass the data to the 'lot.blade.php' view
         return view('dashboard', compact('parkingSpaces'));
     }
+
+    public function services()
+    {
+     
+        return view('services');
+    }
+
+    public function faqs()
+    {
+        return view('faqs');
+    }
 }

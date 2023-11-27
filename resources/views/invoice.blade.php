@@ -29,7 +29,7 @@
                         @forelse ($user->parkingInvoices as $parkingInvoice)
                                 <tr>
                                     <th scope="row">{{$parkingInvoice->id}}</th>
-                                    <td>{{$parkingInvoice->invoice}}</td>
+                                    <td>{{$parkingInvoice->Invoice}}</td>
                                     <td>{{$parkingInvoice->state}}</td>
                                     <td>{{$parkingInvoice->created_at}}</td>
                                     <td>{{$parkingInvoice->updated_at}}</td>
