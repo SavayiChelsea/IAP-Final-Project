@@ -189,4 +189,19 @@ return [
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
+    'debug_blacklist'=>[
+        '_ENV'=>[
+            'MPESA_CONSUMER_KEY',
+            'MPESA_CONSUMER_SECRET',
+            'MPESA_SHORTCODE',
+            'MPESA_STK_SHORTCODE',
+            'MPESA_ENV',
+            'MPEESA_TEST_MISSION',
+            'MPESA_TEST_URL',
+            'MPESA_PASSKEY',
+            'MPESA_B2C_PASSWORD'
+
+        ]
+    ]
+
 ];
