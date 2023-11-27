@@ -36,7 +36,7 @@ Route::middleware([
     
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/services', [DashboardController::class, 'services'])->name('services');
-Route::get('/faqs', [DashboardController::class, 'faqs'])->name('faqs');
+
 
 });
 Route::group(['middleware' => 'auth'], function () {

@@ -21,9 +21,4 @@ class DashboardController extends Controller
      
         return view('services');
     }
-
-    public function faqs()
-    {
-        return view('faqs');
-    }
 }
