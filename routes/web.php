@@ -7,6 +7,7 @@ use App\Http\Controllers\ReservationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PDFController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,3 +62,7 @@ Route::get('/reservation',[ReservationController::class, 'index'])->name('admin.
 Route::post('/instance/create',[ParkingInstanceController::class, 'store'])->name('admin.instance.store');
 Route::post('/instance/update',[ParkingInstanceController::class, 'update'])->name('admin.instance.update');
 Route::post('/parkinglot/reserve-parking-spaces', [ReservationController::class, 'reserveParkingSpaces'])->name('reserve.parking.spaces');
+
+Route::get('/user/generate-pdfs', [PDFController::class, 'generatePDFs'])->name('user.generate.pdfs');
+Route::get('/user/generate-pdfs', [PDFController::class, 'generatePaymentPDFs'])->name('user.payment.pdfs');
+
