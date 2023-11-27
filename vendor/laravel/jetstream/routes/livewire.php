@@ -7,6 +7,7 @@ use Laravel\Jetstream\Http\Controllers\Livewire\PrivacyPolicyController;
 use Laravel\Jetstream\Http\Controllers\Livewire\TeamController;
 use Laravel\Jetstream\Http\Controllers\Livewire\TermsOfServiceController;
 use Laravel\Jetstream\Http\Controllers\Livewire\AboutController;
+use Laravel\Jetstream\Http\Controllers\Livewire\faqsController;
 use Laravel\Jetstream\Http\Controllers\Livewire\ContactController;
 use Laravel\Jetstream\Http\Controllers\Livewire\UserProfileController;
 use Laravel\Jetstream\Http\Controllers\TeamInvitationController;
@@ -19,6 +20,7 @@ Route::group(['middleware' => config('jetstream.middleware', ['web'])], function
         Route::get('/privacy-policy', [PrivacyPolicyController::class, 'show'])->name('policy.show');
         Route::get('/about', [AboutController::class, 'show'])->name('about.show');
         Route::get('/contact', [ContactController::class, 'show'])->name('contact.show');
+        Route::get('/faqs', [faqsController::class, 'show'])->name('faqs.show');
     }
 
     $authMiddleware = config('jetstream.guard')
