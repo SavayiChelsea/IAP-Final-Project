@@ -632,7 +632,6 @@ class ComposerStaticInitaa322c53454393ed775cfe4807d54a50
         'App\\Http\\Controllers\\ResPaymentsController' => __DIR__ . '/../..' . '/app/Http/Controllers/ResPaymentsController.php',
         'App\\Http\\Controllers\\ReservationController' => __DIR__ . '/../..' . '/app/Http/Controllers/ReservationController.php',
         'App\\Http\\Controllers\\UsersController' => __DIR__ . '/../..' . '/app/Http/Controllers/UsersController.php',
-        'App\\Http\\Controllers\\WelcomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/WelcomeController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\AuthGates' => __DIR__ . '/../..' . '/app/Http/Middleware/AuthGates.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',

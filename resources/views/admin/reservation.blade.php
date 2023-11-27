@@ -31,7 +31,10 @@
                     </div>
 
                     <!-- Hidden input field to store the amount charged -->
-                    <input type="hidden" id="amountCharged" name="amountCharged" value="">
+                    <x-label for="price" value="{{ __('Price:') }}" class="text-dark" />
+                    <input type="text" id="amountCharged" name="amountCharged" value="" readonly>
+
+
 
                     <div class="flex items-center justify-center mt-4">
                         <x-button class="ml-4">
