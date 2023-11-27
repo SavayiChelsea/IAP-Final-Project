@@ -21,6 +21,12 @@ use App\Http\Controllers\UsersController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/services', function () {
+    return view('services')->name('services');
+});
+Route::get('/FAQs', function () {
+    return view('FAQs')->name('FAQs');;
+});
 
 
 Route::middleware([
