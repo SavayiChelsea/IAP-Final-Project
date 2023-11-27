@@ -100,7 +100,7 @@
                         </tbody>
                     </table>
                 </div>
-                <form action="{{ route('user.payment.pdfs', ['user' => $user]) }}" method="get">
+                <form action="{{ route('user.generate.payment.pdf') }}" method="get">
                     @csrf
                     <button type="submit">Generate PDFs</button>
                 </form>

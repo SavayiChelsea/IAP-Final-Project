@@ -63,6 +63,7 @@ Route::post('/instance/create',[ParkingInstanceController::class, 'store'])->nam
 Route::post('/instance/update',[ParkingInstanceController::class, 'update'])->name('admin.instance.update');
 Route::post('/parkinglot/reserve-parking-spaces', [ReservationController::class, 'reserveParkingSpaces'])->name('reserve.parking.spaces');
 
-Route::get('/user/generate-pdfs', [PDFController::class, 'generatePDFs'])->name('user.generate.pdfs');
-Route::get('/user/generate-pdfs', [PDFController::class, 'generatePaymentPDFs'])->name('user.payment.pdfs');
+Route::get('/user/generate-invoice-pdf', [PDFController::class, 'generateInvoice'])->name('user.generate.invoice.pdf');
+Route::get('/user/generate-payment-pdf', [PDFController::class, 'generatePayment'])->name('user.generate.payment.pdf');
+
 
