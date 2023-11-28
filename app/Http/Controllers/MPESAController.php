@@ -16,32 +16,30 @@ class MPESAController extends Controller
     public function STKPush(Request $request)
     {
         try {
-            $amount = 1;
+            // dumps the contents of the request
+            dd($request->all());
+
+            $amount = 5;
             $phoneno = $request->input('phone-number');
             $account_number = 174379;
 
-            $response = Mpesa::stkpush($phoneno, $amount, $account_number, $callbackurl = env('MPESA_CALLBACK_URL'));
+            $response = Mpesa::stkpush($phoneno, $amount, $account_number);
             $result = json_decode((string)$response, true);
 
-            if (isset($result['MerchantRequestID'], $result['CheckoutRequestID'])) {
-                MpesaSTK::create([
-                    'merchant_request_id' =>  $result['MerchantRequestID'],
-                    'checkout_request_id' =>  $result['CheckoutRequestID']
-                ]);
-
-                $this->result_code = 0;
-                $this->result_desc = 'Success';
-            } else {
-                // Log or handle the case where the expected keys are not present in the response.
-            }
+            MpesaSTK::create([
+                'merchant_request_id' =>  $result['MerchantRequestID'],
+                'checkout_request_id' =>  $result['CheckoutRequestID']
+            ]);
+    
+            return $result;
         } catch (\Exception $e) {
             // Log or handle the exception as needed.
         }
 
-        return response()->json([
-            'ResultCode' => $this->result_code,
-            'ResultDesc' => $this->result_desc
-        ]);
+        // return response()->json([
+        //     'ResultCode' => $this->result_code,
+        //     'ResultDesc' => $this->result_desc
+        // ]);
     }
 
     public function STKConfirm(Request $request)
