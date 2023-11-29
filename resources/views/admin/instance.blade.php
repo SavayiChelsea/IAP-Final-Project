@@ -12,7 +12,7 @@
                     <x-label for="parkingSpace_id" value="{{ __('Parking Space Id:') }}" class="text-dark" />
                         <select class="form-select" name="parkingSpace_id">
                             @foreach ($parkingSpaces as $parkingSpace)
-                                @if($parkingSpace->status == "NOT RESERVED" && $parkingSpace->Availability == 'AVAILABLE')
+                                @if($parkingSpace->Availability == 'AVAILABLE')
                                     <option value="{{ $parkingSpace->id }}">{{ $parkingSpace->id }}</option>
                                 @endif
                             @endforeach
