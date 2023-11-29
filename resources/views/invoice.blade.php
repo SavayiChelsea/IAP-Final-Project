@@ -4,28 +4,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script>
-        // jQuery document ready function
-        $(document).ready(function() {
-            // Add click event listener to rows with the class 'clickable-row' in all tables
-            $('.clickable-row').click(function() {
-                // Prompt when a row is clicked
-                var confirmation = confirm("Do you want to do pay for this Invoice?");
 
-                // Example: If confirmed, perform an action (you can modify this as needed)
-                if (confirmation) {
-                    // Get the data you want to pass along
-                    var invoiceId = $(this).find('th:first').text(); // Assuming the invoice ID is in the first <th> cell
-
-                    // Construct the URL with the invoice ID as a parameter
-                    var destinationURL = "{{ route('pay-invoice', ['invoice_id' => '']) }}/" + invoiceId;
-
-                    // Redirect to the constructed URL
-                    window.location.href = destinationURL;
-                }
-            });
-        });
-    </script>
     <div class="container">
         <h1 class="mt-6 mb-6">Invoices</h1>
         <ul class="nav nav-tabs">
