@@ -11,6 +11,7 @@ use App\Http\Controllers\ParkingSpaceController;
 use App\Http\Controllers\ParkingInvoiceController;
 use App\Http\Controllers\ParkingInstanceController;
 use Illuminate\Routing\Controllers\payments\mpesa\MPESAController;
+use App\Http\Controllers\CarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -83,3 +84,4 @@ Route::get('/admin/pay-parking', [PayParkingController::class, 'index'])->name('
 Route::post('/mpesa/stk-push', [MPESAController::class, 'STKPush'])->name('mpesa.stk-push');
 
 Route::post('/mpesa/stk-confirm', [MPESAController::class, 'STKConfirm'])->name('mpesa.stk-confirm');
+Route::get('/carpark/statistics', [CarController::class,'carParkStatistics'])->name('carpark.statistics');

@@ -150,6 +150,18 @@ return new class extends Migration
             $table->string('Balance');
             $table->timestamps();
         });
+        Schema::create('cars', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->constrained(); // Assuming each car belongs to a user
+            $table->string('license_plate');
+            $table->string('parking_number');
+            $table->integer('parking_duration');
+            $table->decimal('parking_fee', 8, 2);
+            $table->timestamp('parked_at');
+            // Add other columns as needed
+            $table->timestamps();
+        });
+        
 
     }
 
@@ -175,5 +187,6 @@ return new class extends Migration
         Schema::dropIfExists('charges');
         Schema::dropIfExists('ChargeInvoice');
         Schema::dropIfExists('ChargesPayments');
+        Schema::dropIfExists('cars');
     }
 };
