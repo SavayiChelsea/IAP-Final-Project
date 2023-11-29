@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         
-        <link rel="icon" href="{{ asset('favicon2.ico') }}" type="image/x-icon">
+        <link rel="icon" href="{{ asset('favicon2.ico', true) }}" type="image/x-icon">
 
         <title>{{ config('app.name', 'Car Park') }}</title>
 
@@ -17,7 +17,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/app.css', true) }}">
         @livewireStyles
     </head>
     <body class="font-sans antialiased">
