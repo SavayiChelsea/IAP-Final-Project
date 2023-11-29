@@ -13,7 +13,8 @@ class ParkingInstanceController extends Controller
 {
     public function index()
     {
-        return view('admin.instance');
+        $parkingSpaces = ParkingSpace::all();
+        return view('admin.instance',compact('parkingSpaces'));
     }
 
 
@@ -37,6 +38,7 @@ class ParkingInstanceController extends Controller
         if ($parkingSpaceId) {
             $parkingSpace = ParkingSpace::find($parkingSpaceId);
             if ($parkingSpace) {
+                $parkingSpace->status = 'NOT RESERVED';
                 $parkingSpace->Availability = 'NOT AVAILABLE';
                 $parkingSpace->save();
             }
@@ -71,10 +73,11 @@ class ParkingInstanceController extends Controller
                 $duration = $parkingInstance->updated_at->diffInHours($parkingInstance->created_at);
 
                 // Retrieve price from the Price table (assuming price per hour)
-                $price = PriceRates::first()->price; // Assuming a single price for simplicity
+                $price = PriceRates::first()->Price; // Assuming a single price for simplicity
 
                 // Calculate total cost
                 $totalCost = $duration * $price;
+
 
                 // Create a new invoice record in ParkingInvoice table
                 $parkingInvoice = new ParkingInvoice();
@@ -87,6 +90,7 @@ class ParkingInstanceController extends Controller
                 if ($parkingSpaceId) {
                     $parkingSpace = ParkingSpace::find($parkingSpaceId);
                     if ($parkingSpace) {
+                        $parkingSpace->status = 'NOT RESERVED';
                         $parkingSpace->Availability = 'AVAILABLE';
                         $parkingSpace->save();
                     }

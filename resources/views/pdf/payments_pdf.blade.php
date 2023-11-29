@@ -1,7 +1,7 @@
-<h1>Invoices</h1>
+<h1>Payments</h1>
 
 <h2>Parking Payments</h2>
-    <table class="border=1">
+    <table class="table table-bordered">
         <thead>
             <tr>
                 <th scope="col">#</th>
@@ -22,14 +22,14 @@
                     </tr>
             @empty
                 <tr>
-                    <td colspan="5" class="text-center mt-4">No Results Found.</td>
+                    <td colspan="5" class="text-center mt-4">No Parking Payments Found.</td>
                 </tr>
             @endforelse 
         </tbody>    
     </table>
 
     <h2>Reservation Payments</h2>
-    <table class="table table-striped">
+    <table class="table table-bordered">
         <thead>
         <tr>
             <th scope="col">#</th>
@@ -50,14 +50,14 @@
             </tr>
             @empty
             <tr>
-                <td colspan="5" class="text-center mt-4">No Results Found.</td>
+                <td colspan="5" class="text-center mt-4">No Reservation Payments Found.</td>
             </tr>
         @endforelse
         </tbody>
     </table>                
 
     <h2>Charge Payments</h2>
-    <table class="table table-striped">
+    <table class="table table-bordered">
         <thead>
             <tr>
                 <th scope="col">#</th>
@@ -78,7 +78,7 @@
                 </tr>
                 @empty
                 <tr>
-                    <td colspan="5" class="text-center mt-4">No Results Found.</td>
+                    <td colspan="5" class="text-center mt-4">No Charge Payments Found.</td>
                 </tr>
             @endforelse
             </tbody>

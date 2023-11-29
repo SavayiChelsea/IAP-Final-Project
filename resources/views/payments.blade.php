@@ -36,7 +36,7 @@
                                     </tr>
                             @empty
                                 <tr>
-                                    <td colspan="5" class="text-center mt-4">No Results Found.</td>
+                                    <td colspan="5" class="text-center mt-4">No Parking Payments Found.</td>
                                 </tr>
                             @endforelse 
                         </tbody>
@@ -65,7 +65,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="5" class="text-center mt-4">No Results Found.</td>
+                                <td colspan="5" class="text-center mt-4">No Reservation Payments Found.</td>
                             </tr>
                         @endforelse
                         </tbody>
@@ -94,7 +94,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="5" class="text-center mt-4">No Results Found.</td>
+                                <td colspan="5" class="text-center mt-4">No Charge Payments Found.</td>
                             </tr>
                         @endforelse
                         </tbody>
@@ -102,7 +102,7 @@
                 </div>
                 <form action="{{ route('user.generate.payment.pdf') }}" method="get">
                     @csrf
-                    <button type="submit">Generate PDFs</button>
+                    <button class="btn btn-success" type="submit">Generate PDFs</button>
                 </form>
             </div>
         </div>

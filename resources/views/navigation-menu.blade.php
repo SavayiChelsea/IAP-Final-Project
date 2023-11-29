@@ -18,10 +18,8 @@
                     <x-nav-link href="{{ route('admin.reservation') }}" :active="request()->routeIs('admin.reservation')">
                         {{ __('Reservation') }}
                     </x-nav-link>
-                    {{-- <x-nav-link href="{{ route('payments') }}" :active="request()->routeIs('payments')">
-                        {{ __('Payments') }}
-                    </x-nav-link> --}}
-
+                
+                    
                     @can('user_access')
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.*')">

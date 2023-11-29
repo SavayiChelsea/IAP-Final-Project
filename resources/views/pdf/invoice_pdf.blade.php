@@ -1,7 +1,7 @@
 <h1>Invoices</h1>
 
 <h2>Parking Invoices</h2>
-    <table class="border=1">
+    <table class="table table-bordered">
         <thead>
             <tr>
                 <th>#</th>
@@ -22,14 +22,14 @@
             </tr>
             @empty
             <tr>
-                <td colspan="5" style="text-align: center;">No Results Found.</td>
+                <td colspan="5" style="text-align: center;">No Parking Invoices Found.</td>
             </tr>
             @endforelse
         </tbody>
     </table>
 
     <h2>Reservation Invoices</h2>
-    <table class="table table-striped">
+    <table class="table table-bordered">
         <thead>
         <tr>
             <th scope="col">#</th>
@@ -50,14 +50,14 @@
             </tr>
             @empty
             <tr>
-                <td colspan="5" class="text-center mt-4">No Results Found.</td>
+                <td colspan="5" class="text-center mt-4">No Reservation Invoices Found.</td>
             </tr>
         @endforelse
         </tbody>
     </table>                
 
     <h2>Charge Invoices</h2>
-    <table class="table table-striped">
+    <table class="table table-bordered">
         <thead>
         <tr>
             <th scope="col">#</th>
@@ -78,7 +78,7 @@
             </tr>
             @empty
             <tr>
-                <td colspan="5" class="text-center mt-4">No Results Found.</td>
+                <td colspan="5" class="text-center mt-4">No Charge Invoices Found.</td>
             </tr>
         @endforelse
         </tbody>

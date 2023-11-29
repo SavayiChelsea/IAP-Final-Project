@@ -4,6 +4,28 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+        // jQuery document ready function
+        $(document).ready(function() {
+            // Add click event listener to rows with the class 'clickable-row' in all tables
+            $('.clickable-row').click(function() {
+                // Prompt when a row is clicked
+                var confirmation = confirm("Do you want to do pay for this Invoice?");
+
+                // Example: If confirmed, perform an action (you can modify this as needed)
+                if (confirmation) {
+                    // Get the data you want to pass along
+                    var invoiceId = $(this).find('th:first').text(); // Assuming the invoice ID is in the first <th> cell
+
+                    // Construct the URL with the invoice ID as a parameter
+                    var destinationURL = "{{ route('pay-invoice', ['invoice_id' => '']) }}/" + invoiceId;
+
+                    // Redirect to the constructed URL
+                    window.location.href = destinationURL;
+                }
+            });
+        });
+    </script>
     <div class="container">
         <h1 class="mt-6 mb-6">Invoices</h1>
         <ul class="nav nav-tabs">
@@ -27,7 +49,7 @@
                     </thead>
                     <tbody>
                         @forelse ($user->parkingInvoices as $parkingInvoice)
-                                <tr>
+                                <tr class="clickable-row">
                                     <th scope="row">{{$parkingInvoice->id}}</th>
                                     <td>{{$parkingInvoice->Invoice}}</td>
                                     <td>{{$parkingInvoice->state}}</td>
@@ -36,7 +58,7 @@
                                 </tr>
                         @empty
                             <tr>
-                                <td colspan="5" class="text-center mt-4">No Results Found.</td>
+                                <td colspan="5" class="text-center mt-4">No Parking Invoices Found.</td>
                             </tr>
                         @endforelse 
                     </tbody>
@@ -56,7 +78,7 @@
                     </thead>
                     @forelse ($user->resInvoices as $resInvoice)
                         <tbody>
-                        <tr>
+                        <tr class="clickable-row">
                             <th scope="row">{{$resInvoice->id}}</th>
                             <td>{{$resInvoice->Amountcharged}}</td>
                             <td>{{$resInvoice->state}}</td>
@@ -65,7 +87,7 @@
                         </tr>
                         @empty
                         <tr>
-                            <td colspan="5" class="text-center mt-4">No Results Found.</td>
+                            <td colspan="5" class="text-center mt-4">No Reservation Invoices Found.</td>
                         </tr>
                     @endforelse
                     </tbody>
@@ -75,7 +97,7 @@
                 <h3 class="mt-6 mb-6">Charge Invoices</h3>
                 <table class="table table-striped">
                     <thead>
-                    <tr>
+                    <tr class="clickable-row">
                         <th scope="col">#</th>
                         <th scope="col">Invoice</th>
                         <th scope="col">State</th>
@@ -94,7 +116,7 @@
                         </tr>
                         @empty
                         <tr>
-                            <td colspan="5" class="text-center mt-4">No Results Found.</td>
+                            <td colspan="5" class="text-center mt-4">No Charge Invoices Found.</td>
                         </tr>
                     @endforelse
                     </tbody>
@@ -102,7 +124,7 @@
             </div>
             <form action="{{ route('user.generate.invoice.pdf') }}" method="get">
                 @csrf
-                <button type="submit">Generate PDFs</button>
+                <button class="btn btn-success" type="submit">Generate PDFs</button>
             </form>
             
         </div>
