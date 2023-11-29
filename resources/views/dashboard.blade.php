@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
                <head>
-        <link rel="icon" href="{{ asset('favicon2.ico') }}" type="image/x-icon">
+        <link rel="icon" href="{{ asset('favicon2.ico', true) }}" type="image/x-icon">
 
         <title>{{ config('app.name', 'Car Park') }}</title>
 
@@ -18,9 +18,9 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/app.css', true) }}">
         @livewireStyles
-        <link rel="stylesheet" href="{{asset ('css/trail.css')}}">
+        <link rel="stylesheet" href="{{asset ('css/trail.css',true)}}">
     </head>
     <body class="font-sans antialiased">
         <x-banner />
