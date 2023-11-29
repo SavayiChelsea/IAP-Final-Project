@@ -15,6 +15,7 @@
             <div class="row justify-content-center">
                 <p style="color: green; font-size: 30px;">Pay Parking easily via M-pesa</p><br>
                 <div id="mpesa-details" class="payment-details" >
+                    {{-- yeah --}}
                     <form method="post" action="{{ route('pay-stk') }}" >
                         @csrf <!-- Add a CSRF token for security -->
         
@@ -27,6 +28,7 @@
                         <div class="flex items-center justify-center mt-4">
                             <x-button class="ml-4" type="submit">
                                 {{ __('Pay with M-Pesa') }}
+
                             </x-button>
                         </div>
                     </form>

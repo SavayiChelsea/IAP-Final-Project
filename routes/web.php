@@ -70,7 +70,8 @@ Route::get('/user/generate-invoice-pdf', [PDFController::class, 'generateInvoice
 Route::get('/user/generate-payment-pdf', [PDFController::class, 'generatePayment'])->name('user.generate.payment.pdf');
 
 
-Route::get('/pay',[MPESAController::class, 'stk'])->name('pay-stk');
+//Route::get('/pay',[MPESAController::class, 'stk'])->name('pay-stk');
+
 Route::post('/v1/mpesatest/stk/push', [MPESAController::class, 'STKPush'])->name('pay-stk');
 
 Route::post('v1/confirm', [MPESAController::class, 'STKConfirm'])->name('mpesa.confirm');
@@ -78,3 +79,7 @@ Route::post('v1/confirm', [MPESAController::class, 'STKConfirm'])->name('mpesa.c
 
 Route::get('/admin/pay-parking', [PayParkingController::class, 'index'])->name('admin.pay-parking');
 
+
+Route::post('/mpesa/stk-push', [MPESAController::class, 'STKPush'])->name('mpesa.stk-push');
+
+Route::post('/mpesa/stk-confirm', [MPESAController::class, 'STKConfirm'])->name('mpesa.stk-confirm');
