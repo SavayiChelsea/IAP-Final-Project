@@ -10,7 +10,13 @@
                 @csrf
                 <div>
                     <x-label for="parkingSpace_id" value="{{ __('Parking Space Id:') }}" class="text-dark" />
-                    <x-input id="parkingSpace_id" class="block mt-1 w-full" type="text" name="parkingSpace_id" :value="old('Parking Space Id:')" required autofocus />
+                        <select class="form-select" name="parkingSpace_id">
+                            @foreach ($parkingSpaces as $parkingSpace)
+                                @if($parkingSpace->status == "NOT RESERVED" && $parkingSpace->Availability == 'AVAILABLE')
+                                    <option value="{{ $parkingSpace->id }}">{{ $parkingSpace->id }}</option>
+                                @endif
+                            @endforeach
+                        </select>
                 </div>
     
                 <div class="mt-4">
@@ -29,10 +35,14 @@
             @include('admin.success')
             <form class="form mt-5" action="{{ route('admin.instance.update') }}" method="post">
                 @csrf
-                <div>
-                    <x-label for="parkingSpace_id" value="{{ __('Parking Space Id:') }}" class="text-dark" />
-                    <x-input id="parkingSpace_id" class="block mt-1 w-full" type="text" name="parkingSpace_id" :value="old('Parking Space Id:')" required autofocus />
-                </div>
+                <x-label for="parkingSpace_id" value="{{ __('Parking Space Id:') }}" class="text-dark" />
+                        <select class="form-select" name="parkingSpace_id">
+                            @foreach ($parkingSpaces as $parkingSpace)
+                                @if($parkingSpace->Availability == 'NOT AVAILABLE')
+                                    <option value="{{ $parkingSpace->id }}">{{ $parkingSpace->id }}</option>
+                                @endif
+                            @endforeach
+                        </select>
     
                 <div class="mt-4">
                     <x-label for="licence" value="{{ __('Licence Plate:') }}" class="text-dark" />

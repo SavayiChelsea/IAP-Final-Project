@@ -14,9 +14,14 @@
 
                 // Example: If confirmed, perform an action (you can modify this as needed)
                 if (confirmation) {
-                    // Perform action here
-                    // For instance, you can redirect to another page or perform any desired action
-                    // Example: window.location.href = "your_action_url";
+                    // Get the data you want to pass along
+                    var invoiceId = $(this).find('th:first').text(); // Assuming the invoice ID is in the first <th> cell
+
+                    // Construct the URL with the invoice ID as a parameter
+                    var destinationURL = "{{ route('pay-invoice', ['invoice_id' => '']) }}/" + invoiceId;
+
+                    // Redirect to the constructed URL
+                    window.location.href = destinationURL;
                 }
             });
         });
