@@ -152,7 +152,7 @@ return new class extends Migration
         });
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained(); // Assuming each car belongs to a user
+            $table->foreignId('user_id')->constrained();
             $table->string('license_plate');
             $table->string('parking_number');
             $table->integer('parking_duration');

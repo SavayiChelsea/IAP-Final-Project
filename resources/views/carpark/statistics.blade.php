@@ -12,7 +12,7 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <h3>Today's Statistics:</h3>
                     <p>Revenue Earned: ${{ $revenue }}</p>
-                    <p>Number of Unique Cars Parked Today: {{ $carsParked }}</p>
+                    <p>Number of Cars Parked Today: {{ $carsParked }}</p>
 
                     <!-- Chart.js graph container -->
                     <canvas id="carParkChart" width="400" height="200"></canvas>
